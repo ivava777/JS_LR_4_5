@@ -1,0 +1,21 @@
+.nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav__item {
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.nav__item:hover {
+    background-color: #fff;
+    color: #35495e;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #333;
+}

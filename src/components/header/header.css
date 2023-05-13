@@ -1,0 +1,19 @@
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.header-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.header__logo {
+    max-height: 80px;
+    width: auto;
+}
+
+.header__nav {
+    text-align: right;
+}
