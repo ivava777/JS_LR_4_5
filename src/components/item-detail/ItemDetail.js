@@ -43,7 +43,8 @@ const ItemDetail = (props) => {
             api.put(`/items/${itemId}`, newItem)
                 .then(response => {
                     console.log('Item updated:', response);
-                    navigation(`/`);
+                    navigation(`/items/${itemId}`);
+                    fetchItem();
                 })
                 .catch(error => {
                     console.error('Error updating item:', error);
@@ -53,7 +54,7 @@ const ItemDetail = (props) => {
             api.post('/items', newItem)
                 .then(response => {
                     console.log('Item added:', response);
-                    navigation(`/`);
+                    navigation(`/items/${response.id}`)
                 })
                 .catch(error => {
                     console.error('Error adding item:', error);
