@@ -5,15 +5,15 @@ import "./item-detail.css"
 
 const ItemDetail = (props) => {
     const { itemId } = useParams();
+    const formType = props.formType;
     const navigation = useNavigate();
     const [item, setItem] = useState(null);
-    const [formType, setFormType ] = useState(props?.formType || '');
     const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState('');
     const [available, setAvailable] = useState(false);
 
-    console.log(formType, props);
+    console.log(formType);
 
     const fetchItem = () => {
         // Fetch the item from the database using the item ID
@@ -35,7 +35,7 @@ const ItemDetail = (props) => {
             name,
             description,
             price,
-            available: available || false,
+            available,
         };
 
         if (itemId) {
@@ -43,8 +43,7 @@ const ItemDetail = (props) => {
             api.put(`/items/${itemId}`, newItem)
                 .then(response => {
                     console.log('Item updated:', response);
-                    setFormType('');
-                    //navigation(`/items/${response.id}`);
+                    navigation(`/`);
                 })
                 .catch(error => {
                     console.error('Error updating item:', error);
@@ -54,8 +53,7 @@ const ItemDetail = (props) => {
             api.post('/items', newItem)
                 .then(response => {
                     console.log('Item added:', response);
-                    //setFormType('');
-                    //navigation(`/items/${response.id}`);
+                    navigation(`/`);
                 })
                 .catch(error => {
                     console.error('Error adding item:', error);
@@ -68,7 +66,7 @@ const ItemDetail = (props) => {
         api.delete(`/items/${itemId}`)
             .then(response => {
                 console.log('Item deleted:', response);
-                navigation('/')
+                navigation('/');
             })
             .catch(error => {
                 console.error('Error deleting item:', error);
@@ -76,7 +74,6 @@ const ItemDetail = (props) => {
     };
 
     const handleEdit = () => {
-        setFormType('editing');
         navigation(`/items/${itemId}/edit`);
     }
 
@@ -89,7 +86,7 @@ const ItemDetail = (props) => {
             setPrice(0);
             setAvailable(false);
         }
-    }, [itemId, formType]);
+    }, [itemId]);
 
     const handleAvailableChange = (event) => {
         setAvailable(event.target.checked);
@@ -101,9 +98,9 @@ const ItemDetail = (props) => {
 
     return (
         <div className="app-content">
-            {(formType === 'editing' || formType === 'adding') ? (
+            {(formType === 'edit' || formType === 'add') ? (
                 <>
-                    <h2>{ formType === 'adding' ? 'Add Item' : 'Edit Item'}</h2>
+                    <h2>{ formType === 'add' ? 'Add Item' : 'Edit Item'}</h2>
                     <form onSubmit={handleSave}>
                         <label>
                             Name:
@@ -124,9 +121,9 @@ const ItemDetail = (props) => {
                             <input type="checkbox" checked={available || false} onChange={handleAvailableChange} />
                         </label>
                         <br />
-                        {formType === 'editing' ? <button type="button" onClick={handleDelete}>Delete</button> : ''}
+                        {formType === 'edit' ? <button type="button" onClick={handleDelete}>Delete</button> : ''}
+                        <button type="button" onClick={() => navigation('/')}>Cancel</button>
                         <button type="button" onClick={handleSave}>Save</button>
-                        <button type="button" onClick={() => setFormType('')}>Cancel</button>
                     </form>
                 </>
             ) : (

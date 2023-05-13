@@ -13,9 +13,9 @@ const App = () => {
             <Header />
               <Routes>
                   <Route path="/" element={<ItemList />} />
-                  <Route path="/add" element={<ItemDetail formType={'adding'}/>} />
-                  <Route path="/items/:itemId" element={<ItemDetail />} />
-                  <Route path="/items/:itemId/edit" element={<ItemDetail formType={'editing'}/>} />
+                  <Route path="/items/new" element={<ItemDetail formType='add'/>} />
+                  <Route path="/items/:itemId" element={<ItemDetail formType="view"/>} />
+                  <Route path="/items/:itemId/edit" element={<ItemDetail formType='edit'/>} />
                   <Route path="*" element={<ErrorPage />} />
               </Routes>
             <Footer />
