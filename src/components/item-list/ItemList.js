@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../api/api';
 import './ItemList.css';
+import { CartContext } from '../../cart-context/CartContext';
 
 const ItemList = () => {
     const [items, setItems] = useState([]);
@@ -10,6 +11,8 @@ const ItemList = () => {
     const [sortOrder, setSortOrder] = useState('asc');
     const [filter, setFilter] = useState('');
     const [showOnlyAvailable, setShowOnlyAvailable] = useState(false);
+
+    const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
         fetchItems();
@@ -67,6 +70,10 @@ const ItemList = () => {
         navigate(`/items/${itemId}`);
     };
 
+    const handleAddToCart = (item) => {
+        addToCart(item);
+    };
+
     return (
         <div className="item-list-container">
             <h2>Bikes</h2>
@@ -105,6 +112,7 @@ const ItemList = () => {
                     <th>Description</th>
                     <th>Available</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -115,6 +123,7 @@ const ItemList = () => {
                         <td>{item.description}</td>
                         <td className="align-center">{item.available ? 'Yes' : 'No'}</td>
                         <td className="align-center"><button onClick={() => handleViewDetail(item.id)} className="view-detail-button">View Detail</button></td>
+                        <td className="align-center"><button onClick={() => handleAddToCart(item)}>Add to Cart</button></td>
                     </tr>
                 ))}
                 </tbody>

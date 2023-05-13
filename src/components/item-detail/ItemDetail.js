@@ -100,35 +100,32 @@ const ItemDetail = (props) => {
     return (
         <div className="app-content">
             {(formType === 'edit' || formType === 'add') ? (
-                <>
+                <div className="edit-item-form">
                     <h2>{ formType === 'add' ? 'Add Item' : 'Edit Item'}</h2>
                     <form onSubmit={handleSave}>
-                        <label>
-                            Name:
-                            <input type="text" value={name} onChange={e => setName(e.target.value)} />
-                        </label>
-                        <br />
-                        <label>
-                            Description:
-                            <textarea value={description} onChange={e => setDescription(e.target.value)} />
-                        </label>
-                        <br />
-                        <label>
-                            Price:
-                            <input type="number" value={price} onChange={e => setPrice(+e.target.value)} />
-                        </label>
-                        <label>
-                            Available:
-                            <input type="checkbox" checked={available || false} onChange={handleAvailableChange} />
-                        </label>
-                        <br />
-                        {formType === 'edit' ? <button type="button" onClick={handleDelete}>Delete</button> : ''}
-                        <button type="button" onClick={() => navigation('/')}>Cancel</button>
-                        <button type="button" onClick={handleSave}>Save</button>
+                        <div className="form-grid">
+                            <label htmlFor="name">Name:</label>
+                            <input type="text" value={name} onChange={e => setName(e.target.value)} id="name" />
+
+                            <label htmlFor="description">Description:</label>
+                            <textarea value={description} onChange={e => setDescription(e.target.value)} id="description"/>
+
+                            <label htmlFor="price">Price:</label>
+                            <input type="number" value={price} onChange={e => setPrice(+e.target.value)} id="price"/>
+
+                            <label htmlFor="available">Available:</label>
+                            <input type="checkbox" checked={available || false} onChange={handleAvailableChange} id="available"/>
+
+                            <div className="button-cell">
+                                {formType === 'edit' ? <button type="button" onClick={handleDelete}>Delete</button> : ''}
+                                <button type="button" onClick={() => navigation('/')}>Cancel</button>
+                                <button type="submit" onClick={handleSave}>Save</button>
+                            </div>
+                        </div>
                     </form>
-                </>
+                </div>
             ) : (
-                <>
+                <div className="item-detail">
                     <h2>Item Detail</h2>
                     <h3>Name: {item ? item.name : name}</h3>
                     <p>Description: {item ? item.description : description}</p>
@@ -136,7 +133,7 @@ const ItemDetail = (props) => {
                     <p>Available: {available ? 'Yes' : 'No'}</p>
                     <button onClick={handleEdit}>Edit Item</button>
                     <button onClick={handleDelete}>Delete Item</button>
-                </>
+                </div>
             )}
         </div>
     );

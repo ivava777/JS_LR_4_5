@@ -3,52 +3,6 @@
     background-color: #f4f4f4;
 }
 
-h2 {
-    margin-top: 0;
-}
-
-form {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-input[type="text"],
-textarea,
-input[type="number"] {
-    max-width: 20%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-input[type="checkbox"] {
-    margin-left: 5px;
-}
-
-button {
-    margin-right: 10px;
-    padding: 8px 12px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
 .item-detail {
     margin-bottom: 20px;
 }
@@ -64,3 +18,76 @@ button:disabled {
 .item-detail button {
     margin-right: 10px;
 }
+
+.edit-item-form {
+    margin-top: 20px;
+}
+
+.edit-item-form h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.edit-item-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.edit-item-form h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 8px;
+}
+
+.form-grid label {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+}
+
+.form-grid input,
+.form-grid textarea {
+    grid-column: 2;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button-cell {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.button-cell button {
+    margin: 0 8px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-cell button[type="submit"] {
+    background-color: #28a745;
+}
+
+.button-cell button[type="button"] {
+    background-color: #dc3545;
+}
+
+.button-cell button:hover {
+    background-color: #0056b3;
+}
+
+
+

@@ -5,7 +5,7 @@
 
 .header-content {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 10fr 2fr;
     align-items: center;
 }
 
@@ -16,4 +16,18 @@
 
 .header__nav {
     text-align: right;
+}
+
+.cart-button {
+    background-color: #f50057;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cart-button:hover {
+    background-color: #c51162;
 }
