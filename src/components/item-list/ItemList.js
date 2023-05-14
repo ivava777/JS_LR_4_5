@@ -37,10 +37,6 @@ const ItemList = () => {
         setSortOrder(event.target.value);
     };
 
-    const handleFilterChange = (event) => {
-        setFilter(event.target.value);
-    };
-
     const handleAvailabilityChange = () => {
         setShowOnlyAvailable(!showOnlyAvailable);
     };
