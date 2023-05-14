@@ -9,7 +9,7 @@ const ItemList = () => {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const [sortOrder, setSortOrder] = useState('asc');
-    const [filter, setFilter] = useState('');
+    const [filter] = useState('');
     const [showOnlyAvailable, setShowOnlyAvailable] = useState(false);
 
     const { addToCart } = useContext(CartContext);
@@ -54,7 +54,7 @@ const ItemList = () => {
     });
 
     const filteredAndSortedItems = sortedItems.filter((item) =>
-        item.description?.toLowerCase().includes(filter?.toLowerCase())
+        item.name?.toLowerCase().includes(filter?.toLowerCase())
     );
 
     const filteredAndSortedItemsWithAvailability = filteredAndSortedItems.filter((item) =>
