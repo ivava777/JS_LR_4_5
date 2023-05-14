@@ -105,8 +105,8 @@ const ItemList = () => {
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Description</th>
                     <th>Available</th>
+                    <th>Price</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -116,8 +116,8 @@ const ItemList = () => {
                     <tr key={item.id}>
                         <td className="align-center">{item.id}</td>
                         <td>{item.name}</td>
-                        <td>{item.description}</td>
                         <td className="align-center">{item.available ? 'Yes' : 'No'}</td>
+                        <td className="align-right">{item.price}</td>
                         <td className="align-center"><button onClick={() => handleViewDetail(item.id)} className="view-detail-button">View Detail</button></td>
                         <td className="align-center"><button onClick={() => handleAddToCart(item)} disabled={!item.available} className="add-to-cart-button">Add to Cart</button></td>
                     </tr>

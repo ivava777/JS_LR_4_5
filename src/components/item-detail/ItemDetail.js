@@ -130,7 +130,7 @@ const ItemDetail = (props) => {
                     <p>Description: {item ? item.description : description}</p>
                     <p>Price: {item ? item.price : price}</p>
                     <p>Available: {available ? 'Yes' : 'No'}</p>
-                    <button onClick={handleEdit} className="sec-btn">>Edit Item</button>
+                    <button onClick={handleEdit} className="sec-btn">Edit Item</button>
                     <button onClick={handleDelete} className="sec-btn">Delete Item</button>
                 </div>
             )}

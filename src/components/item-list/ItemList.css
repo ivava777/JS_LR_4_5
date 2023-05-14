@@ -65,6 +65,10 @@
     text-align: center;
 }
 
+.align-right {
+    text-align: right;
+}
+
 .view-detail-button {
     padding: 8px 16px;
     background-color: #4caf50;
