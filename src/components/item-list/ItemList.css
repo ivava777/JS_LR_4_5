@@ -19,6 +19,7 @@
 .item-table th {
     background-color: #f0f0f0;
     font-weight: bold;
+    text-align: center;
 }
 
 .filter-container {

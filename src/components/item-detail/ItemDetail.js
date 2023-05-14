@@ -1,7 +1,8 @@
 import React, { useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import api from "../../api/api";
-import "./item-detail.css"
+import "./item-detail.css";
+import "../../App.css";
 
 const ItemDetail = (props) => {
     const { itemId } = useParams();
@@ -115,8 +116,8 @@ const ItemDetail = (props) => {
                             <input type="checkbox" checked={available || false} onChange={handleAvailableChange} id="available"/>
 
                             <div className="button-cell">
-                                {formType === 'edit' ? <button type="button" onClick={handleDelete}>Delete</button> : ''}
-                                <button type="button" onClick={() => navigation('/')}>Cancel</button>
+                                {formType === 'edit' ? <button type="button" onClick={handleDelete} className="sec-btn">Delete</button> : ''}
+                                <button type="button" onClick={() => navigation('/')} className="sec-btn">Cancel</button>
                                 <button type="button" onClick={handleSave} className="main-btn">Save</button>
                             </div>
                         </div>
@@ -129,8 +130,8 @@ const ItemDetail = (props) => {
                     <p>Description: {item ? item.description : description}</p>
                     <p>Price: {item ? item.price : price}</p>
                     <p>Available: {available ? 'Yes' : 'No'}</p>
-                    <button onClick={handleEdit}>Edit Item</button>
-                    <button onClick={handleDelete}>Delete Item</button>
+                    <button onClick={handleEdit} className="sec-btn">>Edit Item</button>
+                    <button onClick={handleDelete} className="sec-btn">Delete Item</button>
                 </div>
             )}
         </div>

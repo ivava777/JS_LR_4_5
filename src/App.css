@@ -3,6 +3,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    background-color: #f1f1f1;
 }
 
 .app-content {
@@ -16,3 +17,16 @@ body {
     flex: 1;
     min-height: 100vh;
 }
+
+.main-btn {
+    background-color: #28a745;
+}
+
+.sec-btn {
+    background-color: #dc3545;
+}
+
+.main-btn:hover, .sec-btn:hover {
+    background-color: #0056b3;
+}
+

@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { CartContext } from '../../cart-context/CartContext';
-import './Cart.css';
-import api from "../../api/api";
 import {useNavigate} from "react-router-dom";
+import api from "../../api/api";
+import { CartContext } from '../../cart-context/CartContext';
+import "../../App.css";
+import './Cart.css';
 
 const Cart = () => {
     const { cartItems, addToCart, removeFromCart, clearCart } = useContext(CartContext);
@@ -75,8 +76,8 @@ const Cart = () => {
                                 <td>{item.quantity}</td>
                                 <td>${item.price}</td>
                                 <td>
-                                    <button onClick={() => handleAddItem(item)}>+</button>
-                                    <button onClick={() => handleRemoveItem(item)}>-</button>
+                                    <button onClick={() => handleAddItem(item)}  className="main-btn">+</button>
+                                    <button onClick={() => handleRemoveItem(item)}  className="sec-btn">-</button>
                                 </td>
                             </tr>
                         ))}
@@ -87,10 +88,10 @@ const Cart = () => {
                         <p className="cart-total-label">Total:</p>
                         <p className="cart-total-amount">${calculateTotal(cartItems)}</p>
                     </div>
-                    <button className="cart-order-button" onClick={handleClearCart}>
+                    <button className="cart-order-button" onClick={handleClearCart} className="sec-btn">
                         Clear Cart
                     </button>
-                    <button className="cart-order-button" onClick={handleCreateOrder}>Create Order</button>
+                    <button className="cart-order-button main-btn" onClick={handleCreateOrder}>Create Order</button>
                 </>
             )}
         </div>
