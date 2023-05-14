@@ -83,7 +83,8 @@
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
 }
 
-.view-detail-button:disabled {
-    background-color: #ccc;
+.view-detail-button:disabled,
+.add-to-cart-button:disabled {
+    background-color: #737171;
     cursor: not-allowed;
 }

@@ -123,7 +123,7 @@ const ItemList = () => {
                         <td>{item.description}</td>
                         <td className="align-center">{item.available ? 'Yes' : 'No'}</td>
                         <td className="align-center"><button onClick={() => handleViewDetail(item.id)} className="view-detail-button">View Detail</button></td>
-                        <td className="align-center"><button onClick={() => handleAddToCart(item)}>Add to Cart</button></td>
+                        <td className="align-center"><button onClick={() => handleAddToCart(item)} disabled={!item.available} className="add-to-cart-button">Add to Cart</button></td>
                     </tr>
                 ))}
                 </tbody>
