@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import api from "../../api/api";
 import "./item-detail.css"
@@ -12,21 +12,6 @@ const ItemDetail = (props) => {
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState('');
     const [available, setAvailable] = useState(false);
-
-    const fetchItem = () => {
-        // Fetch the item from the database using the item ID
-        api.get(`/items/${itemId}`)
-            .then(response => {
-                setItem(response);
-                setName(response.name);
-                setDescription(response.description);
-                setPrice(response.price);
-                setAvailable(response.available);
-            })
-            .catch(error => {
-                console.error('Error fetching item:', error);
-            });
-    };
 
     const handleSave = () => {
         const newItem = {
@@ -42,7 +27,7 @@ const ItemDetail = (props) => {
                 .then(response => {
                     console.log('Item updated:', response);
                     navigation(`/items/${itemId}`);
-                    fetchItem();
+                    //fetchItem();
                 })
                 .catch(error => {
                     console.error('Error updating item:', error);
@@ -77,6 +62,21 @@ const ItemDetail = (props) => {
     }
 
     useEffect(() => {
+        const fetchItem = () => {
+            // Fetch the item from the database using the item ID
+            api.get(`/items/${itemId}`)
+                .then(response => {
+                    setItem(response);
+                    setName(response.name);
+                    setDescription(response.description);
+                    setPrice(response.price);
+                    setAvailable(response.available);
+                })
+                .catch(error => {
+                    console.error('Error fetching item:', error);
+                });
+        };
+
         if (itemId) {
             fetchItem();
         } else {
@@ -85,7 +85,7 @@ const ItemDetail = (props) => {
             setPrice(0);
             setAvailable(false);
         }
-    }, [itemId]);
+    }, [itemId, formType]);
 
     const handleAvailableChange = (event) => {
         setAvailable(event.target.checked);

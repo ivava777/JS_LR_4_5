@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../cart-context/CartContext';
 import './Cart.css';
 import api from "../../api/api";
+import {useNavigate} from "react-router-dom";
 
 const Cart = () => {
     const { cartItems, addToCart, removeFromCart, clearCart } = useContext(CartContext);
+    const navigate = useNavigate();
 
     const handleAddItem = (item) => {
         addToCart(item);
@@ -41,6 +43,9 @@ const Cart = () => {
 
                 // Clear the cart after the order is successfully created
                 clearCart();
+
+                navigate(`/orders/${response.data.id}`);
+
             })
             .catch((error) => {
                 console.error('Error creating order:', error);
