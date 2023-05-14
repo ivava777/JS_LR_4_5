@@ -13,8 +13,6 @@ const ItemDetail = (props) => {
     const [description, setDescription] = useState('');
     const [available, setAvailable] = useState(false);
 
-    console.log(formType);
-
     const fetchItem = () => {
         // Fetch the item from the database using the item ID
         api.get(`/items/${itemId}`)
@@ -119,7 +117,7 @@ const ItemDetail = (props) => {
                             <div className="button-cell">
                                 {formType === 'edit' ? <button type="button" onClick={handleDelete}>Delete</button> : ''}
                                 <button type="button" onClick={() => navigation('/')}>Cancel</button>
-                                <button type="submit" onClick={handleSave}>Save</button>
+                                <button type="button" onClick={handleSave} className="main-btn">Save</button>
                             </div>
                         </div>
                     </form>

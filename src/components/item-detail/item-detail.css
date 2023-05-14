@@ -77,11 +77,11 @@
     cursor: pointer;
 }
 
-.button-cell button[type="submit"] {
+.button-cell .main-btn {
     background-color: #28a745;
 }
 
-.button-cell button[type="button"] {
+.button-cell button {
     background-color: #dc3545;
 }
 
