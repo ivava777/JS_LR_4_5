@@ -99,7 +99,7 @@ const ItemDetail = (props) => {
         <div className="app-content">
             {(formType === 'edit' || formType === 'add') ? (
                 <div className="edit-item-form">
-                    <h2>{ formType === 'add' ? 'Add Item' : 'Edit Item'}</h2>
+                    <h2>{ formType === 'add' ? 'Add' : 'Edit'} Bike</h2>
                     <form onSubmit={handleSave}>
                         <div className="form-grid">
                             <label htmlFor="name">Name:</label>
@@ -124,7 +124,7 @@ const ItemDetail = (props) => {
                 </div>
             ) : (
                 <div className="item-detail">
-                    <h2>Item Detail</h2>
+                    <h2>Bike info</h2>
                     <h3>Name: {item ? item.name : name}</h3>
                     <p>Description: {item ? item.description : description}</p>
                     <p>Price: {item ? item.price : price}</p>
